@@ -1,0 +1,1 @@
+exports.config = {host:'10.168.1.110',port:6379,db:7}
