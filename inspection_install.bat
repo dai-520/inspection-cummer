@@ -6,7 +6,7 @@ set CURRENTT_DIR=%cd%
 echo "------------------------开始安装点检系统相关服务..."
 
 echo "开始安装定时调度服务..."
-nssm.exe install rms-consumer%CURRENTT_DIR%/rms-inspection.bat
+nssm.exe install rms-consumer  %CURRENTT_DIR%/rms-inspection.bat
 echo "完成安装定时调度服务!!!"
 
 echo "------------------------开始启动服务..."
