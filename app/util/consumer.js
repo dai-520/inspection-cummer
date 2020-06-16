@@ -28,7 +28,6 @@ async function findJob(myqueue, id) {
 };
 exports.consumer = (myqueue, app) => {
     consumer.listen(async msg => {
-        console.log('111111111111111111111111111111', JSON.parse(msg.data))
         const data = JSON.parse(msg.data)
         if (data.flag === 0) {  //新增
             await dealRadis.dealRadis(myqueue, data, app);

@@ -48,7 +48,7 @@ module.exports = appInfo => {
     //  app:true,
     name:"",
     discovery: {
-      serverAddr: "10.168.1.110:8848"
+      serverAddr: "rms-nacos:8848"
     }
   }
 
