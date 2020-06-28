@@ -27,8 +27,11 @@ async function findJob(myqueue, id) {
     return myJob;
 };
 exports.consumer = (myqueue, app) => {
+    console.log("enter consume")
     consumer.listen(async msg => {
+        console.log("parse before cosumer get data success")
         const data = JSON.parse(msg.data)
+        console.log("cosumer get data success",data)
         if (data.flag === 0) {  //新增
             await dealRadis.dealRadis(myqueue, data, app);
         } else if (data.flag === 1) {    //删除

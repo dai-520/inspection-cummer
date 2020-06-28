@@ -1,1 +1,1 @@
-exports.config = {host:'rms-db',port:6379,db:7}
+exports.config = {host:'rms-redis',port:6379,db:7}
