@@ -3,7 +3,7 @@
 /** @type Egg.EggPlugin */
 module.exports = {
   cors: {
-    enable: true,
+    enable: false,
     package: 'egg-cors',
   },
   eggExtend:{

@@ -9,20 +9,16 @@ require('babel-register')({
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
+const fs = require('fs');
 module.exports = appInfo => {
   /**
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {};
-
+  const consumerCfg=JSON.parse(fs.readFileSync("rms-consumer.json"));
+  config.redisUrl =consumerCfg.redis;
   config.keys = appInfo.name + '_1558595032295_9433';
-
-  // add your middleware config here
-  // config.middleware = ["advBody"];
-  // config.advBody={
-  //   multipart: true
-  // }
   config.security = {
     xframe: {
       enable: false,
@@ -31,13 +27,6 @@ module.exports = appInfo => {
       enable: false,
     },
   };
-   // egg cluster config
-  // config.cluster = {
-  //   listen: {
-  //     port: 8081,
-  //     hostname: '127.0.1.1',
-  //   },
-  // };
   config.cors = {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',

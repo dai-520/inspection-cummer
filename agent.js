@@ -10,13 +10,3 @@ class AppNacosHook {
 
 }
 module.exports=AppNacosHook;
-
-// module.exports = app => {
-    // delayQueue.start(app);
-    // app.once('server', server => {
-    //     setTimeout(function(){
-    //         delayQueue.start(app);
-    //     },3000)
-        
-    //   });
-// }

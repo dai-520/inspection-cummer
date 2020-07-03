@@ -1,0 +1,7 @@
+{
+	"redis": {
+		"host": "rms-redis",
+		"port": 6379,
+		"db": 7
+	}
+}

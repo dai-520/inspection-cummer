@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "egg-bin dev  --port=8001 --workers=1",
-    "debug": "egg-bin debug --port=8001 --workers=1"
+    "dev": "node pull-config.js && egg-bin dev  --port=8001 --workers=1",
+    "debug": "node pull-config.js && egg-bin debug --port=8001 --workers=1"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +20,8 @@
     "egg-extend": "github:wwinstonWang/egg-extend#v1.1",
     "egg-multipart": "^2.7.1",
     "egg-scripts": "^2.11.0",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "nacos": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

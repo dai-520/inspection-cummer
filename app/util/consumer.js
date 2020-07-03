@@ -1,15 +1,19 @@
 const Consumer = require('super-queue').Consumer;
 var dealRadis = require('./utils')
-var config = require('../util/config')
-const consumer = new Consumer({
-    queue: 'winston',
-    prefix: 'wt',
-    redis: config.config,
-    // redis: {host: '10.168.1.110', port: 6379, db: 5},
-    capacity: 0,
-    heartbeat: 2,
-});
-
+let p;
+exports.init = (redis)=>{
+    p = new Consumer({
+      // 队列名称
+      queue: 'winston',
+      prefix: 'wt',
+      // 设置Redis数据库连接
+      redis: redis,
+      // 默认的消息有效时间(s)，为0表示永久
+      maxAge: 0,
+      // 心跳时间周期（s），默认2秒
+      heartbeat: 2,
+    })
+}
 /**
  * 从延迟队列中根据id查找job
  * @param {*} myqueue 
@@ -27,8 +31,8 @@ async function findJob(myqueue, id) {
     return myJob;
 };
 exports.consumer = (myqueue, app) => {
-    console.log("enter consume")
-    consumer.listen(async msg => {
+    console.log("enter consume",p)
+    p.listen(async msg => {
         console.log("parse before cosumer get data success")
         const data = JSON.parse(msg.data)
         console.log("cosumer get data success",data)
